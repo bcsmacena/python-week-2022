@@ -1,9 +1,10 @@
-#from dataclasses import dataclass
+# from dataclasses import dataclass
 from typing import Optional
 from sqlmodel import SQLModel, select, Field
 from pydantic import validator
 from statistics import mean
 from datetime import datetime
+
 
 class Beer(SQLModel, table=True):
     id: Optional[int] = Field(primary_key=True, default=None, index=True)
@@ -13,7 +14,7 @@ class Beer(SQLModel, table=True):
     image: int
     cost: int
     rate: int = 0
-    date: datetime = Field(default_factory = datetime.now)
+    date: datetime = Field(default_factory=datetime.now)
 
     @validator("flavor", "image", "cost")
     def validate_ratings(cls, v, field):
@@ -25,7 +26,9 @@ class Beer(SQLModel, table=True):
     def calculate_rate(cls, v, values):
         rate = mean([values["flavor"], values["image"], values["cost"]])
         return int(rate)
-#try:
+
+
+# try:
 brewdog = Beer(name="teste", style="teste", flavor=8, image=6, cost=10)
-#except RuntimeError:
+# except RuntimeError:
 #    print("Error")
