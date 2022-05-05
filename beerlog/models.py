@@ -1,6 +1,6 @@
 # from dataclasses import dataclass
 from typing import Optional
-from sqlmodel import SQLModel, select, Field
+from sqlmodel import SQLModel, Field
 from pydantic import validator
 from statistics import mean
 from datetime import datetime
