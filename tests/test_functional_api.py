@@ -12,12 +12,10 @@ def test_create_beer_via_api():
             "style": "KornIPA",
             "flavor": 1,
             "image": 1,
-            "cost": 2
+            "cost": 2,
         },
     )
     assert response.status_code == 201
     result = response.json()
     assert result["name"] == "Skol"
     assert result["id"] == 1
-
-
