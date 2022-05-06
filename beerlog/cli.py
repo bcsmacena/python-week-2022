@@ -27,7 +27,7 @@ def add(
 ):
     """Adds a new beer to database"""
     if add_beer_to_database(name, style, flavor, image, cost):
-        print("🍺 beer added to database")
+        print("🍺 Beer added to database")
 
 
 @main.command("list")
